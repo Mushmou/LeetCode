@@ -3,36 +3,33 @@ class Solution:
         """
         Do not return anything, modify matrix in-place instead.
         """
-        def findCoord(matrix):
-            coords = []
-            for i in range(len(matrix)):
-                for j in range(len(matrix[i])):
-                    if matrix[i][j] == 0:
-                        x = (i,j)
-                        coords.append(x)
-                        # print(f'i: {i} j: {j}')
-            return coords
         
-        def setRow(row, matrix):
-            for i in range(len(matrix)):
-                if i == row:
-                    for j in range(len(matrix[i])):
-                        # print(f'{i}{j}')
-                        matrix[i][j] = 0
-            
-        def setCol(col, matrix):
-            for i in range(len(matrix)):
-                for j in range(len(matrix[i])):
-                    if j == col:
-                        matrix[i][j] = 0
-        
-        def setMatrix(coords, matrix):
-            x = setRow(coords[0], matrix)
-            y = setCol(coords[1], matrix)
-        
-        coords = findCoord(matrix)
-        
-        for coord in coords:
-            setMatrix(coord, matrix)
-        
+        ROWS,COLS=len(matrix),len(matrix[0])
+        rowZero=False
+        #determine which rows/cols need to be zero
+        for r in range(ROWS):
+            for c in range(COLS):
+                if matrix[r][c] == 0:
+                    matrix[0][c] = 0
+                    if r > 0:
+                        matrix[r][0]=0
+                    else:
+                         rowZero=True
+                            
+        for r in range(1,ROWS):
+            for c in range(1,COLS):
+                if matrix[0][c]== 0 or matrix[r][0] ==0:
+                    matrix[r][c] = 0
+                    
+        if matrix[0][0]==0:
+            for r in range(ROWS):
+                matrix[r][0]=0
+                    
+        if rowZero:
+            for c in range(COLS):
+                if matrix[0][c] == 0:
+                    for r in range(1, ROWS):
+                        matrix[r][c] = 0
+                else:
+                    matrix[0][c] = 0
                     
