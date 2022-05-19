@@ -12,7 +12,7 @@ class Solution:
                         coords.append(x)
                         # print(f'i: {i} j: {j}')
             return coords
-        #Set the row
+        
         def setRow(row, matrix):
             for i in range(len(matrix)):
                 if i == row:
