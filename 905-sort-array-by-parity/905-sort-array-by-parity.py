@@ -1,8 +1,5 @@
 class Solution:
     def sortArrayByParity(self, nums: List[int]) -> List[int]:
-        #Check for even / odd numbers
-        #Iterate through the list
-
         if len(nums) == 1:
             return nums
         left = 0
