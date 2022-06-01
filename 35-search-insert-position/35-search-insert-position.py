@@ -6,7 +6,6 @@ class Solution:
         l = 0
         r = len(nums)-1
         m = len(nums) // 2
-
         while l <= r:
             m = (r+l) // 2
             if nums[m] < target:
@@ -15,7 +14,6 @@ class Solution:
                 r = m - 1
             else:
                 return m
-            
         if nums[m] > target:
             return m
         else:
