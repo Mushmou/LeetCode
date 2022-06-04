@@ -1,23 +1,20 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-
         
-#        First remove all the excess characters that are not alphanumeric
-        lowerStr = s.lower()
-        str1 = ""
-        for char in lowerStr:
+        # Convert to lower
+        # Remove all non-alphanumeric characters
+        forward = ""
+        for char in s.lower():
             if char.isalnum():
-                str1+=char
+                forward+=char
 
-        print(str1)
-#         Check forward as is backward (Monkey mode)
-        str2 = ""
-        for char in range(len(str1)-1, -1, -1):
-            str2 += str1[char]
-        
-        if str1 == str2:
+        # Read all chars backwards as forward
+        backward = ""
+        for char in range(len(forward)-1, -1, -1):
+            backward += forward[char]
+
+        # Check if backward is equal to forward
+        if backward == forward:
             return True
-        else:
-            return False
-            
+        return False
         
