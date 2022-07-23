@@ -1,6 +1,5 @@
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
-        
         left = 0
         freq = collections.defaultdict(int)
         res = 0
@@ -13,7 +12,3 @@ class Solution:
             else:
                 res = max(res, window_length)
         return res
-            
-            
-                
-            
