@@ -1,26 +1,34 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        output = []
         prefix = []
         postfix = []
-        product, productTwo = 1, 1
+
         for i in range(len(nums)):
-            product = product * nums[i]
-            prefix.append(product)
-        for i in range(len(nums)-1, -1, -1):
-            productTwo = productTwo * nums[i]
-            postfix.append(productTwo)
-        postfix.reverse()
-        firstIndex, lastIndex = 0, len(nums)-1
-        for i in range(len(nums)):
-            outputProduct = 0
-            if i == firstIndex:
-                outputProduct = (1 * postfix[i+1])
-                output.append(outputProduct)
-            elif i == lastIndex:
-                outputProduct = (1 * prefix[i-1])
-                output.append(outputProduct)
+            if len(prefix) == 0:
+                temp = nums[i]
             else:
-                outputProduct = (prefix[i-1]) * (postfix[i+1])
-                output.append(outputProduct)
-        return output
+                temp = prefix[-1] * nums[i]
+            prefix.append(temp)
+
+        for i in range(len(nums)-1, -1, -1):
+            if len(postfix) == 0:
+                temp = nums[i]
+            else:
+                temp = postfix[-1] * nums[i]
+            postfix.append(temp)
+
+        reversed_postfix = []
+
+        for i in range(len(postfix)-1, -1, -1):
+            reversed_postfix.append(postfix[i])
+            
+        result = []
+        # Get output
+        for i in range(len(nums)):
+            if i == 0:
+                result.append(reversed_postfix[i+1])
+            elif i == len(nums)-1:
+                result.append(prefix[i-1])
+            else:
+                result.append(prefix[i-1] * reversed_postfix[i+1])
+        return(result)
