@@ -13,12 +13,6 @@ Evaluate
 '''
 
 class Solution:
-    def display(grid):
-        for r in range(len(grid)):
-            print()
-            for c in range(len(grid[0])):
-                print(grid[r][c], end="")
-                
     def numIslands(self, grid: List[List[str]]) -> int:
         if len(grid) == 0:
             return 0
