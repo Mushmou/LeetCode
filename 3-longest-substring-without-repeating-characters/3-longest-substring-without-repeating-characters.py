@@ -46,7 +46,6 @@ class Solution:
             if s[r] not in sub:
                 sub += s[r]
             else:
-                print(f'sub {sub} right {s[r]}')
                 left = sub.index(s[r]) + 1
                 sub = sub[left:] + s[r]
             res = max(res, len(sub))
