@@ -2,52 +2,40 @@
 Understand
 Match
 Plan
+make left, result, substring
+
+iterate through the string, 
+if the current element not in sub
+    add elem to sub
+otherwise
+    get the index of the current element in the substring
+    increment that index
+    rewrite the subtring without that element and add the new element
+    
+    ie: current element = "b" substring ="bcd"
+    output cbd
+    
+get the maxLength
+return maxLength
 Implement
 Review
 Evaluate
-'''
 
-'''
-  l
-     r
-pwwkew
- l
-    r
-abcabcbb
-l = 0
-sub = ""
-maxLength = 0
-iterate through the string
-
-if r not in sub:
-    sub += right elem
-
-if r in sub and last elem == s[r]:
-    left = right
-    right += 1
-    sub = ""
-    sub += left
-    sub += right
-else:
-    get max(length of sub, maxLength)
-    left += 1
-    sub = [left:]
-    right += 1
 '''
 
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        l = 0
         res = 0
         sub = ""
-        
         
         for r in range(len(s)):
             if s[r] not in sub:
                 sub += s[r]
             else:
                 left = sub.index(s[r]) + 1
+                print(f"left: {sub[left:]}, right {s[r]}")
                 sub = sub[left:] + s[r]
+            print(f'sub {sub} elem {s[r]}')
             res = max(res, len(sub))
         return res
 
