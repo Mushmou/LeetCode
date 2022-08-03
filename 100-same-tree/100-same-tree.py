@@ -8,10 +8,10 @@ class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         #check left or both p and q
         #Check right of both p and q
-        if not p and not q:
+        if p == None and q == None:
             return True
         
-        if (not p or not q) or p.val != q.val:
+        if (p == None or q == None) or p.val != q.val:
             return False
         
         
