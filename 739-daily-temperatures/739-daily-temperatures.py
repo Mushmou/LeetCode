@@ -41,11 +41,6 @@ class Solution:
         result = [0]*len(temperatures)
         stack = collections.deque()
         
-        #[73,74,75,71,69,72,76,73]
-        #Add first item into stack
-        # stack.append( (0, temperatures[0]) )
-        
-        #loop through the temperatures
         for i in range(len(temperatures)):
             # print(result, stack)
             while len(stack) != 0:
