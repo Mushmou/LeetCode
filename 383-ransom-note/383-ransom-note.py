@@ -5,6 +5,5 @@ class Solution:
         for c in ransomNote:
             if c not in magazine:
                 return False
-            else:
-                magazine.remove(c)
+            magazine.remove(c)
         return True
