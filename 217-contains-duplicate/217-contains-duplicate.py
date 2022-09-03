@@ -1,12 +1,17 @@
+'''
+Understand
+Match
+Plan
+Implement
+Review
+Evaluate
+'''
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        i,v = 0,1
-        nums.sort()
-        while v < len(nums):
-            print(f' i = {nums[i]} index {i}')
-            print(f' v = {nums[v]} index {v}')
-            if nums[i] == nums[v]:
+        numbers = set()
+        for n in nums:
+            if n not in numbers:
+                numbers.add(n)
+            else:
                 return True
-            i+=1
-            v+=1
         return False
