@@ -11,3 +11,6 @@ class Solution:
         for anagramValue in anagrams.values():
             result.append(anagramValue)
         return result
+    
+#       Time Complexity O(n)
+#       Space Complexity O(n)
